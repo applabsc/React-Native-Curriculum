@@ -2,65 +2,65 @@
 
 With React Native, we use Javascript to style our components. No need to deal with stylesheets unlike in web development. 
 
-
-
 However, if you do have a web background, styling in React Native will be familiar to CSS, but with the main difference being style names are written with camel case rather than slashes. E.g. React Native uses `backgroundColor` instead of `background-color`. In addition, in React Native the values of the `style` object have to be strings.
 
 All of the core React Native components accept a `style` prop. To see what style props are supported by each component, check the component's documentation page on the [React Native Documentation](http://facebook.github.io/react-native/docs/getting-started)
 
-
-
 One way of declaring the style of a component is by passing an object to the component's `style` prop, as shown below.
 ```
-    export default class App extends React.Component {
-      render() {
-        return (
-          <View style={{backgroundColor: 'green'}}/>
-        );
-      }
-    }
+export default class App extends React.Component {
+  render() {
+    return (
+      <View style={{backgroundColor: 'green'}}/>
+    );
+  }
+}
 ```
 Another way to style components is to define the style object in `StyleSheet.create()` . Both methods are equivalent, but this method this is helpful for organizing code when projects grow in size. See below for an example of how to do use `StyleSheet.create()`.
 
-    export default class App extends React.Component {
-     render() {
-       return (
-         <View style={styles.viewStyle}/>
-       );
-     }
-    }
+```
+export default class App extends React.Component {
+ render() {
+   return (
+     <View style={styles.viewStyle}/>
+   );
+ }
+}
 
-    const styles = StyleSheet.create({
-      viewStyle: {
-        backgroundColor: 'green',
-      }
-    })
+const styles = StyleSheet.create({
+  viewStyle: {
+    backgroundColor: 'green',
+  }
+})
+```
 
 -   Note that `styles` is defined outside the component, not inside the component class. 
 -   A common mistake is to forget the key when defining the stylesheet. For example the following code would not compile because all styles must have a key
 
 ```
-    // WRONG
-    const styles = StyleSheet.create({
-      flex: 1,
-      backgroundColor: 'blue',
-    }): 
+// WRONG
+const styles = StyleSheet.create({
+  flex: 1,
+  backgroundColor: 'blue',
+}): 
 
-    // 😎
-    const styles = StyleSheet.create({
-      container: {
-        flex: 1,
-        backgroundColor: 'blue',
-      }
-    }): 
+// 😎
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'blue',
+  }
+}): 
 ```
 
 You can also pass an array of styles to the `styles` prop. The last style in the array has precedence, so you can use this to inherit styles.
 
-    <View style={[
-      {backgroundColor: 'blue'},
-      {backgroundColor: 'pink'},
-    ]}/>
+```
+<View style={[
+  {backgroundColor: 'blue'},
+  {backgroundColor: 'pink'},
+]}/>
+```
 
 The background color of the view declared above will be pink as the last declared style takes precedence.
 
@@ -87,8 +87,8 @@ We distinguish between parent and children container properties in the next sect
 
 Flex Direction
 ```
-    flexDirection: 'row' | 'row-reverse' |
-                   'column' | 'column-reverse' 
+flexDirection: 'row' | 'row-reverse' |
+               'column' | 'column-reverse' 
 ```
 Flex direction establishes the main-axis, thus defining the direction flex items are placed in the flex container. If the blue views were defined in the view from lighest to darkest, the following would be the appearance on screen for different flex values. 
 
@@ -102,9 +102,9 @@ Flex direction establishes the main-axis, thus defining the direction flex items
 
 Justify Content
 ```
-    justifyContent: 'flex-start' | 'flex-end' |
-                    'center' | 'space-between' |
-                    'space-around' | 'space-evenly' 
+justifyContent: 'flex-start' | 'flex-end' |
+                'center' | 'space-between' |
+                'space-around' | 'space-evenly' 
 ```
 ![](https://storage.googleapis.com/slite-api-files-production/files/ab7cc1c6-2b0d-4fb8-9ac2-48e09134a812/image.png)
 
@@ -115,16 +115,16 @@ Difference between space around and space evenly:
 
 Align Items
 ```
-    alignItems:  'flex-start' | 'flex-end' |
-                 'center' | 'stretch' |
+alignItems:  'flex-start' | 'flex-end' |
+             'center' | 'stretch' |
 ```
 ![](https://storage.googleapis.com/slite-api-files-production/files/edce852f-7e52-4d67-b15b-a7358659a347/image.png)
 
 Align Content
 ```
-    alignContent: 'flex-start' | 'flex-end' |
-                   'center' | 'stretch' |
-                   'space-between' | 'space-around' 
+alignContent: 'flex-start' | 'flex-end' |
+               'center' | 'stretch' |
+               'space-between' | 'space-around' 
 ```
 ![](https://storage.googleapis.com/slite-api-files-production/files/0851580f-928d-45dd-b1a2-706ff915797e/alignContent.png)
 
@@ -143,9 +143,9 @@ Flex is a number, and can either be positive, negative or 0.
 
 ### Align Self
 ```
-    alignSelf: 'auto' | 'flex-start' |
-               'flex-end' | 'center' | 
-               'stretch' | 'baseline'
+alignSelf: 'auto' | 'flex-start' |
+           'flex-end' | 'center' | 
+           'stretch' | 'baseline'
 ```
 
 ![](https://storage.googleapis.com/slite-api-files-production/files/b9dff3c6-1060-4896-9b99-d4f9cc16243a/alignSelf.png)
