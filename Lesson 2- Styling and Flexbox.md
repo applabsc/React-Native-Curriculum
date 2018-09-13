@@ -11,87 +11,58 @@ All of the core React Native components accept a `style` prop. To see what style
 
 
 One way of declaring the style of a component is by passing an object to the component's `style` prop, as shown below.
-
+```
     export default class App extends React.Component {
-
       render() {
-
         return (
-
           <View style={{backgroundColor: 'green'}}/>
-
         );
-
       }
-
     }
-
+```
 Another way to style components is to define the style object in `StyleSheet.create()` . Both methods are equivalent, but this method this is helpful for organizing code when projects grow in size. See below for an example of how to do use `StyleSheet.create()`.
 
     export default class App extends React.Component {
-
      render() {
-
        return (
-
          <View style={styles.viewStyle}/>
-
        );
-
      }
-
     }
 
     const styles = StyleSheet.create({
-
       viewStyle: {
-
         backgroundColor: 'green',
-
       }
-
     })
 
 -   Note that `styles` is defined outside the component, not inside the component class. 
 -   A common mistake is to forget the key when defining the stylesheet. For example the following code would not compile because all styles must have a key
 
-
+```
     // WRONG
-
     const styles = StyleSheet.create({
-
       flex: 1,
-
       backgroundColor: 'blue',
-
     }): 
 
     // 😎
-
     const styles = StyleSheet.create({
-
       container: {
-
         flex: 1,
-
         backgroundColor: 'blue',
-
       }
-
     }): 
+```
 
 You can also pass an array of styles to the `styles` prop. The last style in the array has precedence, so you can use this to inherit styles.
 
     <View style={[
-
       {backgroundColor: 'blue'},
-
       {backgroundColor: 'pink'},
-
     ]}/>
 
 The background color of the view declared above will be pink as the last declared style takes precedence.
-
 
 
 ## Styling Exercise
@@ -101,11 +72,9 @@ Before we continue, style the button component in the Snack
 https://snack.expo.io/BJFFxNFUX so that it looks like the image below
 
 
-
 ![](https://storage.googleapis.com/slite-api-files-production/files/e7ec6ee5-a63f-41c8-8237-f52391e83b12/image.png)
 
 Hint: to style the button, the `backgroundColor`, `padding` and `borderRadius` props will be useful.
-
 
 
 # Flexbox
@@ -119,11 +88,10 @@ We distinguish between parent and children container properties in the next sect
 ## Parent Container Properties
 
 Flex Direction
-
+```
     flexDirection: 'row' | 'row-reverse' |
-
                    'column' | 'column-reverse' 
-
+```
 Flex direction establishes the main-axis, thus defining the direction flex items are placed in the flex container. If the blue views were defined in the view from lighest to darkest, the following would be the appearance on screen for different flex values. 
 
 
@@ -188,23 +156,20 @@ Flex is a number, and can either be positive, negative or 0.
 -   When `flex` is -1, the component is normally sized according to `width` and `height`. However, if there's not enough space, the component will shrink to its `minWidth` and `minHeight`.
 
 Align Self
-
+```
     alignSelf: 'auto' | 'flex-start' |
-
                'flex-end' | 'center' | 
-
                'stretch' | 'baseline'
+```
 
 ![](https://storage.googleapis.com/slite-api-files-production/files/b9dff3c6-1060-4896-9b99-d4f9cc16243a/alignSelf.png)
 
 `alignSelf` controls how a child aligns in the cross direction, overriding the `alignItems` of the parent.
 
 
-
 Additional Child Container Properties
 
 If you look on the [React Native layout documentation](https://facebook.github.io/react-native/docs/layout-props#flexgrow), you'll find more flex props, and a quick overview of these props are given below. Note that even developing production apps using React Native, I've never had to use these props, so don't worry too much about them right now as you're starting off.
-
 
 
 -   `flexGrow` and `flexShrink` behave pretty much the same as `flex`, so you'll probably won't have a use for those props
