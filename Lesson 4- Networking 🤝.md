@@ -21,44 +21,43 @@ This callback is executed when the promise is resolved (i.e. the network request
 However, if the API call fails, the app may crash because we haven't handled failure cases. To make our app handle failure cases, we need to call `catch` , which also takes in a callback that is executed when the request couldn't be successfully completed. The error object, which contains more information about the error can be accessed via the the callback.
 
 Now our code handles errors!
-
-    fetch('https://facebook.github.io/react-native/movies.json')    
-      .then((response) => console.log(response)) 
-      .catch((e) => console.log(e.toString())
-
+```
+fetch('https://facebook.github.io/react-native/movies.json')    
+   .then((response) => console.log(response)) 
+   .catch((e) => console.log(e.toString())
+```
 NOTE: A common mistake is shown below, where we attempt to access `this.response` before it's set. When line 5 is reached, Javascript won't wait for the API call to end before continuing. It will continue executing, and will reach line 10 far before the API call returns (and `this.response` is set). Hence, when we try to print `this.response` in line 10, it will be `undefined`.
-
+```
 class Example extends React.Component {
-  onPressButton() {
-    // Call an API to get network data, then store the data in this.response
-    fetch('https://facebook.github.io/react-native/movies.json')
-    .then((response) => this.response = response)
-    // Attempt to access the data and get undefined
-    console.log(this.response)
+   onPressButton() {
+      // Call an API to get network data, then store the data in this.response
+      fetch('https://facebook.github.io/react-native/movies.json')
+      .then((response) => this.response = response)
+      // Attempt to access the data and get undefined
+      console.log(this.response)
 }
-
+```
 Here's the key takeaway: the `then()` function also returns a promise by default, that resolves when the callback passed into `then` finishes executing. You can override this behavior and return a promise within the callback. This allows for **promise chaining**, where you can pass promises along from one then block to the next. That way, you can execute code that depends on the result of a previous asyncronous operation to not be executed until the previous operation is complete. 
 
 ```
 // Call an API that returns a promise
 fetch('https://someApiThatReturnsAPromise/')   
-    .then((response) => {
-    // We return a promise, which passes the result of the promise the next promise block
-        return newPromise();
-    })
-    .then((dataReturnedFromPromise) => {
-         // This code won't be executed UNTIL the previous promise finishes executing
-         console.log(dataReturnedFromPromise)
-    })
+   .then((response) => {
+      // We return a promise, which passes the result of the promise the next promise block
+      return newPromise();
+   })
+   .then((dataReturnedFromPromise) => {
+      // This code won't be executed UNTIL the previous promise finishes executing
+      console.log(dataReturnedFromPromise)
+   })
 ```
 
 # Networking
-
 Let's go back to our network request we covered previously. 
-
-     fetch('https://facebook.github.io/react-native/movies.json')   
-       .then((response) => console.log(response)) 
-
+```
+fetch('https://facebook.github.io/react-native/movies.json')   
+   .then((response) => console.log(response)) 
+```
 If we ran the code, `fetch()` makes a network request to get movie information. When the network call returns data, we get the response as the variable `response` in the callback. However, if we just go ahead and `console.log` the response, we'll get something like what's shown below — not exactly the movie data we're looking for. 
 ```
 [object Response] {
@@ -143,7 +142,6 @@ Now, when we run this code, the response that is printed looks like the followin
 And we have the movie data we're looking for
 
 ## Exercise: Weather App
-
 For this exercise, we're going to access the [OpenWeatherMap](https://openweathermap.org) API to get real time weather information and display it in our app. Here's the documentation of the API for more info: https://openweathermap.org/current
 
 To get it to work, you'll need to paste an API key in. An API key you can use is fedc167923fce9420541de468ccc7151
