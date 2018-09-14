@@ -52,7 +52,7 @@ fetch('https://someApiThatReturnsAPromise/')
    })
 ```
 
-# Networking
+## Networking
 Let's go back to our network request we covered previously. 
 ```
 fetch('https://facebook.github.io/react-native/movies.json')   
@@ -144,6 +144,6 @@ And we have the movie data we're looking for
 ## Exercise: Weather App
 For this exercise, we're going to access the [OpenWeatherMap](https://openweathermap.org) API to get real time weather information and display it in our app. Here's the documentation of the API for more info: https://openweathermap.org/current
 
-To get it to work, you'll need to paste an API key in. An API key you can use is fedc167923fce9420541de468ccc7151
+To get it to work, you'll need to paste an API key in. An API key you can use is `fedc167923fce9420541de468ccc7151`
 
 Navigate to this link to the exercise: https://snack.expo.io/BJ1Pn-vP7
