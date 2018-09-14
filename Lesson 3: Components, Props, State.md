@@ -1,4 +1,6 @@
-# Components
+# Lesson 3: Components, Props, State
+
+## Components
 
 A component is pretty much any part of a UI in a React Native app. They can be built in components such as `TextInput` and `View`, or they can be custom components built out of other components.
 
@@ -10,16 +12,17 @@ The standard way to create a component is to define a class. For the class to be
 
 Components only have a single required method, the `render` method. As a example, see below for a simple component definition
 
-    class HelloWorld extends React.Component {
-      render() {
+```
+class HelloWorld extends React.Component {
+    render() {
         return (
-          <Text>
+            <Text>
             Hello, {this.props.name}
-          </Text>
+            </Text>
         );
-      }
     }
-
+}
+```
 We should note that the `render` method can return only a single element. For example, the render method could not be like this:
 
     render() {
@@ -40,7 +43,7 @@ If you need to return multiple elements, wrap them in a `<View>` element
 
 If you're coming from a React background, note that `Views` are comparable to `divs` in React.
 
-# Props
+## Props
 
 A component accepts props (short for properties), which are passed to them by a parent component. These props are used for component configuration.
 
@@ -54,7 +57,7 @@ This is an important paradigm in React and React Native. Data generally flows fr
 
 A child component may decide not to re-render itself even though its configuration has changed, as determined by `shouldComponentUpdate()` (we will talk more about this in when discussing Component Lifecycles).
 
-# State
+## State
 
 Each component has state, which describes the current state of the component. E.g. example state properties include 'selected' or 'currentPage'. The initial state is by setting `this.state` in the constructor of a component.
 
@@ -71,5 +74,19 @@ Unlike `props`, parent elements may not access a child's `state`, as it is inten
 TL;DR: components accept props, which are immultable and have state, which are mutable.
 
 # Exercise
+Try this short exercise to solidify your understanding of the concepts covered: https://snack.expo.io/By17ewH8m
 
-Try the short exercise below to solidify your understanding of the concepts covered here: https://snack.expo.io/By17ewH8m
+## Common Components
+### View
+Views in React Native are analogous to divs in React and HTML. They are used to group sub-components. They are built upon the native view objects (UIView on iOS and android.view on Android)
+
+Typically you won't pass that many props into Views. The most common prop that you'll pass is the style prop. 
+
+### ScrollView
+`ScrollView` is used for scrollable content. They're like a view except everything inside the view is scrollable. They can scroll horizontally or vertically. `ScrollViews` They're well suited for scrolling small quantities of content (< 30 items). 
+
+### FlatList
+Unlike `ScrollView`, `FlatList` doesn't render all of its child content at once. It only renders the list items that show on screen (plus 2-3 immeidately above or under the visible content). So, when you're dealing with a long list, use `FlatList`. The performance of your app will be much better.
+
+# Exercise
+Try this exercise to 
