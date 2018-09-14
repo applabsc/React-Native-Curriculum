@@ -60,158 +60,89 @@ Let's go back to our network request we covered previously.
        .then((response) => console.log(response)) 
 
 If we ran the code, `fetch()` makes a network request to get movie information. When the network call returns data, we get the response as the variable `response` in the callback. However, if we just go ahead and `console.log` the response, we'll get something like what's shown below — not exactly the movie data we're looking for. 
-
-    [object Response] {
-
-      arrayBuffer: function arrayBuffer() {
-
-        [native code]
-
-    },
-
-      blob: function blob() {
-
-        [native code]
-
-    },
-
-      body: [object ReadableStream] { ... },
-
-      bodyUsed: false,
-
-      clone: function clone() {
-
-        [native code]
-
-    },
-
-      formData: function formData() {
-
-        [native code]
-
-    },
-
-      headers: [object Headers] {
-
-        append: function append() {
-
-          [native code]
-
-    },
-
-    {...}
-
-      json: function json() {
-
-        [native code]
-
-    },
-
-      ok: true,
-
-      redirected: false,
-
-      status: 200,
-
-      statusText: "",
-
-      text: function text() {
-
-        [native code]
-
-    },
-
-      type: "cors",
-
-      url: "https://facebook.github.io/react-native/movies.json"
-
-    }
-
+```
+[object Response] {
+   arrayBuffer: function arrayBuffer() {
+      [native code]
+},
+   blob: function blob() {
+      [native code]
+ },
+   body: [object ReadableStream] { ... },
+   bodyUsed: false,
+   clone: function clone() {
+      [native code]
+},
+   formData: function formData() {
+      [native code]
+},
+   headers: [object Headers] {
+      append: function append() {
+         [native code]
+},
+{...}
+   json: function json() {
+      [native code]
+},
+   ok: true,
+   redirected: false,
+   status: 200,
+   statusText: "",
+   text: function text() {
+      [native code]
+},
+   type: "cors",
+   url: "https://facebook.github.io/react-native/movies.json"
+}
+```
 Fetch will return raw HTTP response. To extract the useful data from it, we will need to convert the response data into JSON format. To do that, Javascript has a `.json()` method you can call on the `response` object to do exactly that. 
-
-
 
 However, we can't do something like `responseJson = response.json()`, because `json()` is asyncronous and returns another promise!
 
 This is where we need to use promise chaining. `response.json()` returns a promise, so to get the JSON data from the promise, we need to call `then()` on the promise, and pass in a callback to handle the JSON response. (I know this is super confusing at first, so flag someone down if you don't understand)
 
-
-
 As an example, the code below handles the JSON response in lines 5–7, where we print out the JSONed response `jsonResponse`.
-
-    fetch('https://facebook.github.io/react-native/movies.json')   
-
-      .then((response) => {
-
-        return response.json()
-
-      })
-
-      .then((jsonResponse) => {
-
-         console.log(jsonResponse)
-
-      })
-
-      .catch(error => console.log(error))
-
+```
+ fetch('https://facebook.github.io/react-native/movies.json')   
+   .then((response) => {
+     return response.json()
+   })
+   .then((jsonResponse) => {
+      console.log(jsonResponse)
+   })
+   .catch(error => console.log(error))
+```
 Now, when we run this code, the response that is printed looks like the following:
-
-    [object Object] {
-
-      description: "Your app fetched this from a remote endpoint!",
-
-      movies: [[object Object] {
-
-      id: "1",
-
-      releaseYear: "1977",
-
-      title: "Star Wars"
-
-    }, [object Object] {
-
-      id: "2",
-
-      releaseYear: "1985",
-
-      title: "Back to the Future"
-
-    }, [object Object] {
-
-      id: "3",
-
-      releaseYear: "1999",
-
-      title: "The Matrix"
-
-    }, [object Object] {
-
-      id: "4",
-
-      releaseYear: "2010",
-
-      title: "Inception"
-
-    }, [object Object] {
-
-      id: "5",
-
-      releaseYear: "2014",
-
-      title: "Interstellar"
-
-    }],
-
-      title: "The Basics - Networking"
-
-    }
-
+```
+[object Object] {
+   description: "Your app fetched this from a remote endpoint!",
+   movies: [[object Object] {
+   id: "1",
+   releaseYear: "1977",
+   title: "Star Wars"
+}, [object Object] {
+   id: "2",
+   releaseYear: "1985",
+   title: "Back to the Future"
+}, [object Object] {
+   id: "3",
+   releaseYear: "1999",
+   title: "The Matrix"
+}, [object Object] {
+   id: "4",
+   releaseYear: "2010",
+   title: "Inception"
+}, [object Object] {
+   id: "5",
+   releaseYear: "2014",
+   title: "Interstellar"
+}],
+   title: "The Basics - Networking"
+}
+```
 And we have the movie data we're looking for
 
-
-
-# Exercise: Weather App
+## Exercise: Weather App
 
 For this exercise, we're going to access the [OpenWeatherMap](https://openweathermap.org) API to get real time weather information and display it in our app. Here's the documentation of the API for more info: https://openweathermap.org/current
 
