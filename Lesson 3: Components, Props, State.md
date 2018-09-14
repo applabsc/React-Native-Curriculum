@@ -83,11 +83,18 @@ Views in React Native are analogous to divs in React and HTML. They are used to 
 Typically you won't pass that many props into Views. The most common prop that you'll pass is the style prop. 
 
 ### ScrollView
-`ScrollView` is used for scrollable content. They're like a view except everything inside the view is scrollable. They can scroll horizontally or vertically. `ScrollViews` They're well suited for scrolling small quantities of content (< 30 items). 
+`ScrollView` is used for scrollable content. They're like a view except everything inside the view is scrollable. They can scroll horizontally or vertically. `ScrollViews` They're well suited for scrolling small quantities of content (< 30 items).
 
 ### FlatList
 Unlike `ScrollView`, `FlatList` doesn't render all of its child content at once. It only renders the list items that show on screen (plus 2-3 immeidately above or under the visible content). So, when you're dealing with a long list, use `FlatList`. The performance of your app will be much better.
 
+Usage example
+```
+<FlatList
+    data={[{key: 'a'}, {key: 'b'}]}
+    renderItem={({item}) => <Text>{item.key}</Text>}
+/>
+```
 ### SafeAreaView
 The purpose of SafeAreaView is to render content within the safe area boundaries of a device. It is currently only applicable to iOS devices with iOS version 11 or later.
 
@@ -95,7 +102,7 @@ SafeAreaView renders nested content and automatically applies paddings to reflec
 
 Usage Example
 
-Simply wrap your top level view with a SafeAreaView with a flex: 1 style applied to it. 
+Simply wrap your top level view with a SafeAreaView with a `flex: 1` style applied to it. 
 ```
 <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
   <View style={{flex: 1}}>
