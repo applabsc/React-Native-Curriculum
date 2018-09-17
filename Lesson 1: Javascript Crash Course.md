@@ -2,8 +2,8 @@
 This section serves as an intro to the Javascript language, ES6 and JSX. If you're familiar with any of those three topics feel free to skip the respective sections in the guide.
 
 ## Javascript
-
--   If you're a beginner at Javascript, check here for a good introduction to the language: https://www.learn-js.org 
+We're only covering the core concepts in Javascript required for React Native development here, so if you're a complete beginner in Javascript, the links below are worth checking out.
+-   See here for a good introduction to the language: https://www.learn-js.org 
 -   For more info, reference the Javascirpt documentation here: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 ### Javascript Functions
