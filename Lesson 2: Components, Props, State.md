@@ -75,3 +75,5 @@ TL;DR: components accept props, which are immultable and have state, which are m
 
 ## Exercise
 Try this short exercise to solidify your understanding of the concepts covered: https://snack.expo.io/By17ewH8m
+
+
