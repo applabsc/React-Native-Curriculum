@@ -133,14 +133,40 @@ Touchable Opacity
 
 Touchable Opacity works similarly to button; it has all the props that button has, but also much more for customizing the specific style and behavior of the button. For a complete reference, see the documentation: https://facebook.github.io/react-native/docs/touchableopacity
 
-ScorllView
+## Common Components
+### View
+Views in React Native are analogous to divs in React and HTML. They are used to group sub-components. They are built upon the native view objects (UIView on iOS and android.view on Android)
 
+Typically you won't pass that many props into Views. The most common prop that you'll pass is the style prop. 
 
+### ScrollView
+`ScrollView` is used for scrollable content. They're like a view except everything inside the view is scrollable. They can scroll horizontally or vertically. `ScrollViews` They're well suited for scrolling small quantities of content (< 30 items).
 
-FlatList
+### FlatList
+Unlike `ScrollView`, `FlatList` doesn't render all of its child content at once. It only renders the list items that show on screen (plus 2-3 immeidately above or under the visible content). So, when you're dealing with a long list, use `FlatList`. The performance of your app will be much better.
 
+Usage example
+```
+<FlatList
+    data={[{key: 'a'}, {key: 'b'}]}
+    renderItem={({item}) => <Text>{item.key}</Text>}
+/>
+```
+### SafeAreaView
+The purpose of SafeAreaView is to render content within the safe area boundaries of a device. It is currently only applicable to iOS devices with iOS version 11 or later.
 
+SafeAreaView renders nested content and automatically applies paddings to reflect the portion of the view that is not covered by navigation bars, tab bars, toolbars, and other ancestor views. Moreover, and most importantly, Safe Area's paddings reflect the physical limitation of the screen, such as rounded corners or camera notches (i.e. the sensor housing area on iPhone X).
 
+Usage Example
 
+Simply wrap your top level view with a SafeAreaView with a `flex: 1` style applied to it. 
+```
+<SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+  <View style={{flex: 1}}>
+    <Text>Hello World!</Text>
+  </View>
+</SafeAreaView>
+```
 
-project : TODO
+# Exercise
+Try this exercise to 
