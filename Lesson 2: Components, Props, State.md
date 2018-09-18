@@ -14,19 +14,19 @@ Components only have a single required method, the `render` method. As a example
 
 ```
 class HelloWorld extends React.Component {
-    render() {
-        return (
-            <Text>
+   render() {
+      return (
+         <Text>
             Hello, {this.props.name}
-            </Text>
-        );
-    }
+         </Text>
+      );
+   }
 }
 ```
 We should note that the `render` method can return only a single element. For example, the render method could not be like this:
-
-    render() {
-      return (
+```
+render() {
+    return (
         // WRONG
         <Text>
           Hello, {this.props.name}
@@ -36,9 +36,9 @@ We should note that the `render` method can return only a single element. For ex
         <Text>
           Also, hello, {this.props.name}
         </Text>
-      );
-    }
-
+    );
+}
+```
 If you need to return multiple elements, wrap them in a `<View>` element
 
 If you're coming from a React background, note that `Views` are comparable to `divs` in React.
