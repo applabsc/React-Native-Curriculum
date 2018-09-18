@@ -34,8 +34,6 @@ call(callback);
 
 In Javascript, `var` is used to declare variables. ES6 replaces `var` with `const` and `let`. Variables declared with `const` are immutable. Once their value is set, they can't be changed. Note that if the value assigned to a `const` variable is an object or array, the object or array may still be modified.
 
-
-
 ### Fat Arrow Functions (=>)
 
 Fat arrow functions are an alternative to using  `function () { ... }`  to declare functions in Javascript.
@@ -102,7 +100,7 @@ Each JSX tag, like `<View />`, is transformed into a call to `React.createElemen
 
 Tags can be self-closing, like `<View />`, or they can include both an opening and closing tag, like `<View></View>`. To include children elements, you will need to use an opening and closing tag and put the children tags within.
 
-# Styling
+## Styling
 
 With React Native, we use Javascript to style our components. No need to deal with stylesheets unlike in web development. 
 
@@ -169,27 +167,24 @@ You can also pass an array of styles to the `styles` prop. The last style in the
 The background color of the view declared above will be pink as the last declared style takes precedence.
 
 
-## Styling Exercise
+### Styling Exercise
 
-Before we continue, style the button component in the Snack
-
-https://snack.expo.io/BJFFxNFUX so that it looks like the image below
-
+Before we continue, style the button component in the Snack https://snack.expo.io/BJFFxNFUX so that it looks like the image below
 
 ![](https://storage.googleapis.com/slite-api-files-production/files/e7ec6ee5-a63f-41c8-8237-f52391e83b12/image.png)
 
 Hint: to style the button, the `backgroundColor`, `padding` and `borderRadius` props will be useful.
 
-# Flexbox
+## Flexbox
 Flexbox comes from CSS, and is a way of creating responsive layouts with React Native. When styling your app, it's pretty much required to use flexbox to make your app responsive and adaptable to different screen sizes. Below are the details about all the different flex properties you can set. 
 
 We distinguish between parent and children container properties in the next section. 
 
 ![](https://storage.googleapis.com/slite-api-files-production/files/2f6fb354-cccd-4364-a0f8-6b1fb8e16f49/flexbox.png)
 
-## Parent Container Properties
+### Parent Container Properties
 
-Flex Direction
+#### Flex Direction
 ```
 flexDirection: 'row' | 'row-reverse' |
                'column' | 'column-reverse' 
@@ -204,7 +199,7 @@ Flex direction establishes the main-axis, thus defining the direction flex items
 
 ![](https://storage.googleapis.com/slite-api-files-production/files/de0f1782-298f-40f2-95d9-2127763d10e2/Screen%2520Shot%25202018-08-21%2520at%252012.47.15%2520PM.png)
 
-Justify Content
+#### Justify Content
 ```
 justifyContent: 'flex-start' | 'flex-end' |
                 'center' | 'space-between' |
@@ -217,14 +212,14 @@ Difference between space around and space evenly:
 -   In space evenly, there is an equal length between child components. 
 -   In space around, there is the same amount of **buffer** around each element. Visually the spaces aren't equal, since all the items have equal space on both sides.
 
-Align Items
+#### Align Items
 ```
 alignItems:  'flex-start' | 'flex-end' |
              'center' | 'stretch' |
 ```
 ![](https://storage.googleapis.com/slite-api-files-production/files/edce852f-7e52-4d67-b15b-a7358659a347/image.png)
 
-Align Content
+#### Align Content
 ```
 alignContent: 'flex-start' | 'flex-end' |
                'center' | 'stretch' |
@@ -236,16 +231,16 @@ alignContent: 'flex-start' | 'flex-end' |
 
 **Side Note**: A common error when you don't see children component displaying is not setting `{flex: 1}` in the parent's style prop. Setting the flex will enable the parent to take up all the available space. 
 
-## Child Container Properties
+### Child Container Properties
 
-### Flex
+#### Flex
 Flex is a number, and can either be positive, negative or 0.
 
 -   When flex is positive, it determines the amount of space the component proportional to other components, based on the flex number. For example, a view with `flex: 3` will take up 3 times the space as a view with `flex: 1` with the same parent view.
 -   When flex is 0, the component is sized according to `width` and `height` and it is inflexible.
 -   When `flex` is -1, the component is normally sized according to `width` and `height`. However, if there's not enough space, the component will shrink to its `minWidth` and `minHeight`.
 
-### Align Self
+#### Align Self
 ```
 alignSelf: 'auto' | 'flex-start' |
            'flex-end' | 'center' | 
