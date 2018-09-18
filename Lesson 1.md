@@ -1,6 +1,6 @@
 # Lesson 1: Javascript Crash Course, Styling and Flexbox
 
-This section serves as an intro to the Javascript language, ES6 and JSX. If you're familiar with any of those three topics feel free to skip the respective sections in the guide.
+This section serves as an intro to the Javascript language, ES6 and JSX. If you're familiar with any of those three topics feel free to skip to the second part of this lesson on Styling.
 
 ## Javascript
 We're only covering the core concepts in Javascript required for React Native development here, so if you're a complete beginner in Javascript, the links below are worth checking out.
