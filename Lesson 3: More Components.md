@@ -41,7 +41,7 @@ This method is invoked after re-rendering occurs. At this point, the native UI f
 ## Common Components
 
 ### View
-Views in React Native are analogous to divs in React and HTML. They are used to group sub-components. They are built upon the native view objects (UIView on iOS and android.view on Android)
+Views in React Native are analogous to divs in React and HTML. They are used to group sub-components. They are built upon the native view objects (`UIView` on iOS and `android.view` on Android)
 
 Typically you won't pass that many props into Views. The most common prop that you'll pass is the style prop. 
 
@@ -55,9 +55,9 @@ Usage Example
 Simply wrap your top level view with a SafeAreaView with a `flex: 1` style applied to it. 
 ```
 <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-   <View style={{flex: 1}}>
-      <Text>Hello World!</Text>
-   </View>
+    <View style={{flex: 1}}>
+        <Text>Hello World!</Text>
+    </View>
 </SafeAreaView>
 ```
 
@@ -71,20 +71,20 @@ Typically, to get the text inputted into the app, update `this.state` in the cal
 import { TextInput } from 'react-native';
 ```
 export default class TextInputExample extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: 'Default Text' };
-  }
+   constructor(props) {
+      super(props);
+      this.state = { text: 'Default Text' };
+   }
 
-  render() {
-    return (
-        <TextInput
+   render() {
+      return (
+         <TextInput
             style={{height: 40}}
             onChangeText={(text) => this.setState({text: text})}
             value={this.state.text}
-        />
-    );
-  }
+         />
+      );
+   }
 }
 ```
 ### Buttons
@@ -101,9 +101,9 @@ This is a basic button, matching the design style of the operating system that i
 import { Button } from 'react-native';
 ...
 <Button
-    onPress={() => console.log("Button Pressed"}
-    title="Learn More"
-    color="#841584"
+   onPress={() => console.log("Button Pressed"}
+   title="Learn More"
+   color="#841584"
 />
 ```
 
@@ -122,7 +122,7 @@ Unlike `ScrollView`, `FlatList` doesn't render all of its child content at once.
 Usage example
 ```
 <FlatList
-    data={[{key: 'a'}, {key: 'b'}]}
-    renderItem={({item}) => <Text>{item.key}</Text>}
+   data={[{key: 'a'}, {key: 'b'}]}
+   renderItem={({item}) => <Text>{item.key}</Text>}
 />
 ```
