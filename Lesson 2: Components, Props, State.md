@@ -1,4 +1,4 @@
-# Lesson 3: Components, Props, State
+# Lesson 2: Components, Props, State
 
 ## Components
 
