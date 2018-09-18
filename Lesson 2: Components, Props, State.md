@@ -26,17 +26,17 @@ class HelloWorld extends React.Component {
 We should note that the `render` method can return only a single element. For example, the render method could not be like this:
 ```
 render() {
-    return (
-        // WRONG
-        <Text>
-          Hello, {this.props.name}
-        </Text>
+   return (
+      // WRONG
+      <Text>
+         Hello, {this.props.name}
+      </Text>
 
-        // Because it returns two text components
-        <Text>
-          Also, hello, {this.props.name}
-        </Text>
-    );
+      // Because it returns two text components
+      <Text>
+         Also, hello, {this.props.name}
+      </Text>
+   );
 }
 ```
 If you need to return multiple elements, wrap them in a `<View>` element
@@ -64,11 +64,11 @@ Each component has state, which describes the current state of the component. E.
 However, if you're setting the component state anywhere other than the constructor, you must call the method `this.setState()`, which takes a object with the updated state parameters.
 
 For example, if you want to set the state property `selected` of a button component to `true`, you would invoke the following code:
-
-    this.setState({
-      selected: true
-    })
-
+```
+this.setState({
+   selected: true
+})
+```
 Unlike `props`, parent elements may not access a child's `state`, as it is intended to manage the child's internal state rather than external configuration.
 
 TL;DR: components accept props, which are immultable and have state, which are mutable.
@@ -91,8 +91,8 @@ Unlike `ScrollView`, `FlatList` doesn't render all of its child content at once.
 Usage example
 ```
 <FlatList
-    data={[{key: 'a'}, {key: 'b'}]}
-    renderItem={({item}) => <Text>{item.key}</Text>}
+   data={[{key: 'a'}, {key: 'b'}]}
+   renderItem={({item}) => <Text>{item.key}</Text>}
 />
 ```
 ### SafeAreaView
@@ -105,11 +105,8 @@ Usage Example
 Simply wrap your top level view with a SafeAreaView with a `flex: 1` style applied to it. 
 ```
 <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-  <View style={{flex: 1}}>
-    <Text>Hello World!</Text>
-  </View>
+   <View style={{flex: 1}}>
+      <Text>Hello World!</Text>
+   </View>
 </SafeAreaView>
 ```
-
-# Exercise
-Try this exercise to 
