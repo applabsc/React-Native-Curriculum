@@ -43,7 +43,7 @@ This method is invoked after re-rendering occurs. At this point, the native UI f
 ### View
 Views in React Native are analogous to divs in React and HTML. They are used to group sub-components. They are built upon the native view objects (`UIView` on iOS and `android.view` on Android)
 
-Typically you won't pass that many props into Views. The most common prop that you'll pass is the style prop. 
+Typically you won't pass that many props into Views. The most common prop that you'll pass is the `style` prop. 
 
 ### SafeAreaView
 The purpose of SafeAreaView is to render content within the safe area boundaries of a device. It is currently only applicable to iOS devices with iOS version 11 or later.
@@ -107,7 +107,7 @@ import { Button } from 'react-native';
 />
 ```
 
-\*\* Try the exercise here to apply what you learned about buttons in React Native \*\*
+**Try the exercise here to apply what you learned about buttons in React Native**
 https://snack.expo.io/S1kA86Au7
 
 ### Touchable Opacity
