@@ -38,7 +38,29 @@ This method is invoked, after the decision has been made to re-render. You may n
 
 This method is invoked after re-rendering occurs. At this point, the native UI for this component has been updated to reflect the React Element returned from the render() method.
 
+### Buttons
+This is a basic button, matching the design style of the operating system that it's deployed on (so iOS and Android will look different). It only supports a basic level of customization, so if you want mroe control over the look and feel of the button, considering using a `TouchableOpacity` instead (covered below).
 
+`Button` has these main props
+
+-   `onPress`: accepts a callback that is called whenever the button is pressed
+-   `title`: the button text
+-   `color`: accepts a string indicating the color of the button (e.g. `#DAC345` or `aquamarine`)
+-   `disabled`: accepts a boolean value indicating whether the interactions for the button are disabled or not
+
+```
+import { Button } from 'react-native';
+...
+<Button
+   onPress={() => console.log("Button Pressed"}
+   title="Learn More"
+   color="#841584"
+/>
+```
+
+## Exercise
+**Try this short coding challenge to apply what you've learned about components**
+https://snack.expo.io/S1kA86Au7
 
 ### Touchable Opacity
 Touchable Opacity works similarly to button; it has all the props that button has, but also much more for customizing the specific style and behavior of the button. For a complete reference, see the documentation: https://facebook.github.io/react-native/docs/touchableopacity
