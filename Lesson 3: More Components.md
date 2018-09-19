@@ -38,77 +38,7 @@ This method is invoked, after the decision has been made to re-render. You may n
 
 This method is invoked after re-rendering occurs. At this point, the native UI for this component has been updated to reflect the React Element returned from the render() method.
 
-## Common Components
 
-### View
-Views in React Native are analogous to divs in React and HTML. They are used to group sub-components. They are built upon the native view objects (`UIView` on iOS and `android.view` on Android)
-
-Typically you won't pass that many props into Views. The most common prop that you'll pass is the `style` prop. 
-
-### SafeAreaView
-The purpose of SafeAreaView is to render content within the safe area boundaries of a device. It is currently only applicable to iOS devices with iOS version 11 or later.
-
-SafeAreaView renders nested content and automatically applies paddings to reflect the portion of the view that is not covered by navigation bars, tab bars, toolbars, and other ancestor views. Moreover, and most importantly, Safe Area's paddings reflect the physical limitation of the screen, such as rounded corners or camera notches (i.e. the sensor housing area on iPhone X).
-
-Usage Example
-
-Simply wrap your top level view with a SafeAreaView with a `flex: 1` style applied to it. 
-```
-<SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-    <View style={{flex: 1}}>
-        <Text>Hello World!</Text>
-    </View>
-</SafeAreaView>
-```
-
-### TextInput
-`TextInput` is used for inputting text into the app via a keyboard. `TextInput` has two main props: `onChange` and `value`. 
--    `onChange` accepts a callback that is called whenever the text changes, with the updated text value passed in as the first parameter.
--   `value` accepts a string indicating the text that displays in the text field.
-
-Typically, to get the text inputted into the app, update `this.state` in the callback passed to `onChange` with the updated text, and when you need the text value, just access the text variable from `this.state`.
-
-import { TextInput } from 'react-native';
-```
-export default class TextInputExample extends Component {
-   constructor(props) {
-      super(props);
-      this.state = { text: 'Default Text' };
-   }
-
-   render() {
-      return (
-         <TextInput
-            style={{height: 40}}
-            onChangeText={(text) => this.setState({text: text})}
-            value={this.state.text}
-         />
-      );
-   }
-}
-```
-### Buttons
-This is a basic button, matching the design style of the operating system that it's deployed on (so iOS and Android will look different). It only supports a basic level of customization, so if you want mroe control over the look and feel of the button, considering using a `TouchableOpacity` instead (covered below).
-
-`Button` has these main props
-
--   `onPress`: accepts a callback that is called whenever the button is pressed
--   `title`: the button text
--   `color`: accepts a string indicating the color of the button (e.g. `#DAC345` or `aquamarine`)
--   `disabled`: accepts a boolean value indicating whether the interactions for the button are disabled or not
-
-```
-import { Button } from 'react-native';
-...
-<Button
-   onPress={() => console.log("Button Pressed"}
-   title="Learn More"
-   color="#841584"
-/>
-```
-
-**Try the exercise here to apply what you learned about buttons in React Native**
-https://snack.expo.io/S1kA86Au7
 
 ### Touchable Opacity
 Touchable Opacity works similarly to button; it has all the props that button has, but also much more for customizing the specific style and behavior of the button. For a complete reference, see the documentation: https://facebook.github.io/react-native/docs/touchableopacity
@@ -126,3 +56,5 @@ Usage example
    renderItem={({item}) => <Text>{item.key}</Text>}
 />
 ```
+
+## Project
