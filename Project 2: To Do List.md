@@ -3,7 +3,7 @@ For this project, we're going apply what we've learned about components, props, 
 
 The task is to build an app that looks similar to the one below. 
 
-When the user presses the return button on the keyboard, a new task will be added to the list fo tasks, and when the user presses the "X" button, the task will be deleted.
+When the user presses the return button on the keyboard, a new task will be added to the list of tasks, and when the user presses the "X" button, the task will be deleted.
 
 ![](https://s3-us-west-1.amazonaws.com/applab-sc/Curriculum/ToDoListDemo.gif)
 
