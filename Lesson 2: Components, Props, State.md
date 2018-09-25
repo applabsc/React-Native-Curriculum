@@ -97,9 +97,9 @@ Usage Example
 Simply wrap your top level view with a SafeAreaView with a `flex: 1` style applied to it. 
 ```
 <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-    <View style={{flex: 1}}>
-        <Text>Hello World!</Text>
-    </View>
+   <View style={{flex: 1}}>
+      <Text>Hello World!</Text>
+   </View>
 </SafeAreaView>
 ```
 
