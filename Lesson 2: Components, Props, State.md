@@ -125,3 +125,8 @@ export default class TextInputExample extends Component {
    }
 }
 ```
+
+## Project
+For the rest of the meeting, get started on [Project 1: Login Screen](https://github.com/applabsc/React-Native-Curriculum/blob/master/Project%201:%20Login%20Screen.md), where you'll be building the front-end of a login screen.
+
+If you aren't able to finish within this meeting, make sure to have it done before next meeting, as lessons build upon each other.
