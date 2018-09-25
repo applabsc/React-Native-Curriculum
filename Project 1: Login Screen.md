@@ -20,12 +20,10 @@ There isn't any starter code for this project, so the steps to get started are b
 * Run `npm install` to install dependencies
 * Edit `App.js` to make the login screen
 
-Additionally, linked below is a sample project which lays out an Applab themed login screen. You can to this you get stuck, but do try to complete as much as possible and get help before looking at the example code. 
+Additionally, linked below is a sample project which lays out an Applab themed login screen. You can refer to this if you get stuck, but do try to complete as much as possible and get help before looking at the example code. 
 
 https://github.com/applabsc/Project-1-Solution
 
 ## Sample Applab Login Screen
 
 ![](https://storage.googleapis.com/slite-api-files-production/files/7ac31e5f-6948-4cee-8224-511e1c13cc25/Simulator%2520Screen%2520Shot%2520-%2520iPhone%2520X%2520-%25202018-08-29%2520at%252023.53.53.png)
-
-
