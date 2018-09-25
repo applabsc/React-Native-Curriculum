@@ -88,7 +88,8 @@ The purpose of SafeAreaView is to render content within the safe area boundaries
 
 SafeAreaView renders nested content and automatically applies paddings to reflect the portion of the view that is not covered by navigation bars, tab bars, toolbars, and other ancestor views. Moreover, and most importantly, Safe Area's paddings reflect the physical limitation of the screen, such as rounded corners or camera notches (i.e. the sensor housing area on iPhone X).
 
-Screen with SafeAreaView (left) vs screen without SafeAreaView (right)
+Screen with SafeAreaView (left) vs screen without SafeAreaView (right). Note the overlap of the content with the header on the top and the home bar on the bottom of the screen.
+
 ![](https://s3-us-west-1.amazonaws.com/applab-sc/Curriculum/SafeAreaView.png)
 
 Usage Example
