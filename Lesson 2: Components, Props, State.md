@@ -92,7 +92,7 @@ Screen with SafeAreaView (left) vs screen without SafeAreaView (right). Note the
 
 ![](https://s3-us-west-1.amazonaws.com/applab-sc/Curriculum/SafeAreaView.png)
 
-Usage Example
+**Usage Example**
 
 Simply wrap your top level view with a SafeAreaView with a `flex: 1` style applied to it. 
 ```
