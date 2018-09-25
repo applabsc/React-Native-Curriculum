@@ -74,7 +74,7 @@ Unlike `props`, parent elements may not access a child's `state`, as it is inten
 TL;DR: components accept props, which are immultable and have state, which are mutable.
 
 ## Exercise
-**Try this short coding challenge to apply what you've learned about components** https://snack.expo.io/By17ewH8m
+**Try this short coding challenge to apply what you've learned about components** https://snack.expo.io/BkFj4ZDFQ
 
 ## Common Components
 
