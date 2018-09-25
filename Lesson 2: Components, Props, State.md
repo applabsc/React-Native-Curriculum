@@ -106,8 +106,9 @@ Simply wrap your top level view with a SafeAreaView with a `flex: 1` style appli
 
 Typically, to get the text inputted into the app, update `this.state` in the callback passed to `onChange` with the updated text, and when you need the text value, just access the text variable from `this.state`.
 
-import { TextInput } from 'react-native';
 ```
+import { TextInput } from 'react-native';
+
 export default class TextInputExample extends Component {
    constructor(props) {
       super(props);
