@@ -51,7 +51,9 @@ However, `props` must **not be altered** from within the component's methods.
 
 A parent element may alter a child element's `props` at any time. The child element will call its `render` method upon receinving the new peops and re-render itself to reflect its new configuration parameters. 
 
-As an example, a parent component can declare a child image component by including  `<Image source={require('./jetty-icon.png')}/>`, in its `render` method. `source` is a prop  indicating the source of the image. However, the image component cannot modify image if the image URL/source changes. Only the parent component is allowed to do that.
+As an example, a parent component can declare a child image component by including  
+```<Image source={require('./jetty-icon.png')}/>```
+in its `render` method. `source` is a prop  indicating the source of the image. However, the image component cannot modify image if the image URL/source changes. Only the parent component is allowed to do that.
 
 This is an important paradigm in React and React Native. Data generally flows from top to bottom, meaning parent components pass data to child components and not the other way around.
 
