@@ -62,7 +62,7 @@ A child component may decide not to re-render itself even though its configurati
 
 ## State
 
-Each component has state, which describes the current state of the component. E.g. example state properties include 'selected' or 'currentPage'. The initial state is by setting `this.state` in the constructor of a component.
+Each component has state, which describes the current state of the component. E.g. example state properties include `selected` or `currentPage`. The initial state is specified by setting `this.state` in the constructor of a component.
 
 However, if you're setting the component state anywhere other than the constructor, you must call the method `this.setState()`, which takes a object with the updated state parameters.
 
