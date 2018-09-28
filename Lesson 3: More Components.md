@@ -41,7 +41,7 @@ This method is invoked after re-rendering occurs. At this point, the native UI f
 ### Buttons
 This is a basic button, matching the design style of the operating system that it's deployed on (so iOS and Android will look different). It only supports a basic level of customization, so if you want more control over the look and feel of the button, considering using a `TouchableOpacity` instead (covered below). Shown below on the left is an Android Button, and on the right is an iOS button. 
 
-[](https://s3-us-west-1.amazonaws.com/applab-sc/Curriculum/RNButton.png)
+![](https://s3-us-west-1.amazonaws.com/applab-sc/Curriculum/RNButton.png)
 
 `Button` has these main props
 
