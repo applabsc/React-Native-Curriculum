@@ -1,7 +1,7 @@
 # Lesson 4: Networking
 ## Promises
 
-Before we cover the networking part, we need to cover promises within Javascript first, as promises are used pretty much any time you need to make an asyncronous operation like a network request. Whenever you make a function call that makes network request or does a slow operation that needs to be done asyncronously, the function will return a **promise**.
+Before we cover the networking part, we need to cover promises within Javascript first, as promises are used pretty much any time you need to make an asyncronous operation like a network request. Whenever you make a function call that makes network request or does a slow operation (such as writing to system storage), the function will return a **promise**.
 
 A promise is an object with two main functions that can be called on it: `then()` and `catch()`. `then()` is used to handle the success case, (e.g. when the network call returns successfully), and `catch()` is used to handle the failure case (e.g. when the network call failed for whatever reason).
 
@@ -14,11 +14,11 @@ fetch('https://facebook.github.io/react-native/movies.json')
        
 `fetch('https://facebook.github.io/react-native/movies.json')` returns a promise. We handle the promise and access the return value of the API call by calling the method `then` on that promise. 
 
-`then` takes in a callback, `console.log(response.json())` which just prints the response as JSON when data is received from the API. 
+`then` takes in a callback, `(response) => console.log(response.json())` which just prints the response as JSON when data is received from the API. 
 
-This callback is executed when the promise is resolved (i.e. the network request returned data successfully). The response can be accessed via the first argument of the callback that's passed in. In this example, the argument name is `response`, but you can name this variable whatever you want.
+This callback is executed when the promise is resolved (i.e. the network request successfully returned the data). The response can be accessed via the first argument of the callback that's passed in. In this example, the argument name is `response`, but you can name this variable whatever you want.
 
-However, if the API call fails, the app may crash because we haven't handled failure cases. To make our app handle failure cases, we need to call `catch` , which also takes in a callback that is executed when the request couldn't be successfully completed. The error object, which contains more information about the error can be accessed via the the callback.
+However, if the API call fails, the app may throw an error because we haven't handled failure cases. To make our app handle failure cases, we need to call `catch`, which also takes in a callback that is executed ONLY when the request couldn't be successfully completed. The error object, which contains more information about the error can be accessed via the the callback. For example, the callback, `(e) => console.log(e.toString())` prints out the error.
 
 Now our code handles errors!
 ```
@@ -26,18 +26,18 @@ fetch('https://facebook.github.io/react-native/movies.json')
    .then((response) => console.log(response)) 
    .catch((e) => console.log(e.toString())
 ```
-NOTE: A common mistake is shown below, where we attempt to access `this.response` before it's set. When line 5 is reached, Javascript won't wait for the API call to end before continuing. It will continue executing, and will reach line 10 far before the API call returns (and `this.response` is set). Hence, when we try to print `this.response` in line 10, it will be `undefined`.
+NOTE: A common mistake is shown below, where we attempt to access `this.response` before it's set. Read the code below, then come back here. When line 4 is reached, Javascript won't wait for the API call to facebook.github.io to end before continuing. It will continue executing, and will reach line 7 far before the API call returns (and `this.response` is set). Hence, when we try to print `this.response` in line 7, it will be `undefined`.
 ```
-class Example extends React.Component {
-   onPressButton() {
-      // Call an API to get network data, then store the data in this.response
-      fetch('https://facebook.github.io/react-native/movies.json')
-      .then((response) => this.response = response)
-      // Attempt to access the data and get undefined
-      console.log(this.response)
-}
+1 class Example extends React.Component {
+2    onPressButton() {
+3       // Call an API to get network data, then store the data in this.response
+4       fetch('https://facebook.github.io/react-native/movies.json')
+5       .then((response) => this.response = response)
+6       // Attempt to access the data and get undefined
+7       console.log(this.response)
+8 }
 ```
-Here's the key takeaway: the `then()` function also returns a promise by default, that resolves when the callback passed into `then` finishes executing. You can override this behavior and return a promise within the callback. This allows for **promise chaining**, where you can pass promises along from one then block to the next. That way, you can execute code that depends on the result of a previous asyncronous operation to not be executed until the previous operation is complete. 
+Here's the key takeaway: the `then()` function also returns a promise by default, that resolves when the callback passed into `then` finishes executing. You can override this behavior and return a promise within the callback. This allows for **promise chaining**, where you can pass promises along from one then block to the next. That way, you can execute code that depends on the result of a previous asyncronous operation to not be executed until the previous operation is complete. See the code block below for an example of how this works.
 
 ```
 // Call an API that returns a promise
@@ -102,7 +102,7 @@ This is where we need to use promise chaining. `response.json()` returns a promi
 
 As an example, the code below handles the JSON response in lines 5–7, where we print out the JSONed response `jsonResponse`.
 ```
- fetch('https://facebook.github.io/react-native/movies.json')   
+fetch('https://facebook.github.io/react-native/movies.json')   
    .then((response) => {
      return response.json()
    })
