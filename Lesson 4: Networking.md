@@ -146,4 +146,4 @@ For this exercise, we're going to access the [OpenWeatherMap](https://openweathe
 
 To get it to work, you'll need to paste an API key in. An API key you can use is `fedc167923fce9420541de468ccc7151`
 
-Navigate to this link to the exercise: https://snack.expo.io/BJ1Pn-vP7
+Navigate to this link to the exercise: https://snack.expo.io/ByGnYbBiX
