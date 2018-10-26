@@ -9,7 +9,7 @@ When the user presses the return button on the keyboard, a new task will be adde
 
 ## Getting Started
 * Clone this repository to your computer: `git clone https://github.com/applabsc/Project-2-Starter.git`
-* `cd` into LoginScreen
+* `cd` into Project-2-Starter
 * Run `npm install` to install dependencies
 * Edit `App.js`, following the instructions within the file
 
